@@ -1,0 +1,41 @@
+version: "3"
+
+networks:
+  internal:
+    external: false
+
+services:
+  elixir:
+    image: url_shortener
+    build: .
+    environment:
+      - DATABASE=url_shortener_repo
+      - DBUSERNAME=postgres
+      - DBPASSWORD=mysecretpassword
+      - DBHOSTNAME=db
+    ports:
+      - 4001:4001
+    networks:
+      - internal
+    depends_on:
+      - db
+
+  db:
+    image: postgres:latest
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=mysecretpassword
+      - POSTGRES_DB=url_shortener_repo
+    networks:
+      - internal
+    ports:
+      - "5432:5432"
+
+  react:
+    image: url_shortener_front
+    build: ./front
+    networks:
+      - internal
+    ports:
+      - "3000:3000"

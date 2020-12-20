@@ -7,6 +7,9 @@
 # anything else that needs to happen before your server is started
 # for the first time
 setup:
+	cd front/
+	npm install axios react
+	cd ..
 	docker build -t url_shortener_front ./front/
 	docker build -t url_shortener .
 

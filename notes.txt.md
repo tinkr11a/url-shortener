@@ -1,8 +1,9 @@
-# STORD URL Shortener Exercise
+# URL Shortener Exercise
 
 ## Requirements
 * npm
 * elixir 1.9 (older versions might not work)
+* erlang OTP 22
 * docker
 
 ## Running the code

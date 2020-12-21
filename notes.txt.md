@@ -7,7 +7,7 @@
 * docker
 
 ## Running the code
-make {setup|server|test} are expected to work as expected :)
+make {setup|server|test} are expected to work as expected
 * make setup npm installs react and axios  builds images both React and Elixir apps
 * make server runs images togther with Postgres
 * make test runs Elixir app tests
